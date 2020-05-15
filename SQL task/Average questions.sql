@@ -74,8 +74,11 @@ books issued with alias name “NOOFBOOKS”.
 select max(date_issue) from lms_book_issue where 
 
 //Problem # 10:
-Write a query to list the book title and supplier id for the books authored by Herbert Schildt and the book
 
-select lms_book_details.book_title,lms_suppliers_details.supplier_id from
-lms_book_details join lms_suppliers_details on lms_book_details.supplier_id=lms_suppliers_details.supplier_id where author='herbert schildt';
+Write a query to list the book title and supplier id for the books authored by Herbert Schildt and the book
+edition is 5 and supplied by supplier ‘S01’.
+
+
+select book_title,supplier_id,author,book_edition from
+lms_book_details where author='herbert schildt' and book_edition='5' and supplier_id='S01';
 
