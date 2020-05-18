@@ -28,7 +28,7 @@ from lms_book_issue where DATE_RETURNED is null);
 Write a query to display the member id, member name, fine range and fine amount of the members whose fine amount is less than 100.
 select member_id,member_name from lms_members union select fine_range,fine_amount from lms_fine_details where fine_amount<100;
 
-Problem # 4:
+//Problem # 4:
 Write a query to display the book code, book title and availability status of the ‘JAVA’ books whose edition is 6. 
 Show the availability status with alias name “AVAILABILITYSTATUS”. 
 Hint: Book availability status can be fetched from “BOOK_ISSUE_STATUS” column of LMS_BOOK_ISSUE table.
@@ -38,11 +38,6 @@ select lms_book_details.book_title as AVAILABILITYSTATUS,category,lms_book_issue
 lms_book_details join lms_book_issue on lms_book_details.book_code=lms_book_issue.book_code
 where date_returned is not null and category='java' and book_edition='6';
 
-
-
-
-
-select book_code,book_title from lms_book_details where 
 
 //Problem # 5:
 Write a query to display the book code, book title and rack number of the books which are placed in rack 'A1'
@@ -56,7 +51,7 @@ returned the books after the due date. Hint: Date_return is due date and Date_re
 
 select member_id,member_name 
 
-Problem # 7:
+//Problem # 7:
 Write a query to display the member id, member name and date of registration who have not taken any book.
 
 select member_id,member_name,date_register from lms_members where date_register is null;
@@ -82,3 +77,9 @@ edition is 5 and supplied by supplier ‘S01’.
 select book_title,supplier_id,author,book_edition from
 lms_book_details where author='herbert schildt' and book_edition='5' and supplier_id='S01';
 
+
+//Problem # 13:
+Write a query to display the book code, title, publish date of the books which is been published in the month of
+December.
+
+select book_code,book_title,publish_date from lms_book_details where monthname(publish_date)='december';
